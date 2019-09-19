@@ -1,0 +1,7 @@
+Creates a new TCP or IPC server.
+
+If allowHalfOpen is set to true, when the other end of the socket sends a FIN packet, the server will only send a FIN packet back when socket.end() is explicitly called, until then the connection is half-closed (non-readable but still writable). See 'end' event and RFC 1122 (section 4.2.2.13) for more information.
+
+If pauseOnConnect is set to true, then the socket associated with each incoming connection will be paused, and no data will be read from its handle. This allows connections to be passed between processes without any data being read by the original process. To begin reading data from a paused socket, call socket.resume().
+
+The server can be a TCP server or an IPC server, depending on what it listen() to.
